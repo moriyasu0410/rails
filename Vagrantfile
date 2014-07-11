@@ -85,23 +85,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.omnibus.chef_version = :latest
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["./chef-repo/cookbooks", "./chef-repo/site-cookbooks"]
-  #   chef.roles_path = "../my-recipes/roles"
+    chef.roles_path = "./chef-repo/roles"
+    chef.add_role "local"
   #   chef.data_bags_path = "../my-recipes/data_bags"
-    chef.add_recipe "ruby_build"
-    chef.add_recipe "rbenv::system"
+  #   chef.add_recipe "mysql"
   #   chef.add_role "web"
   #
   #   # You may also specify custom JSON attributes:
   #   chef.json = { :mysql_password => "foo" }
-    chef.json = {
-      "rbenv" => {
-        "rubies" => ["2.1.0"],
-        "global" => "2.1.0",
-        "gems" => {
-          "2.1.0" => [{"name" => "bundler"}]
-        }
-      }
-    }
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,

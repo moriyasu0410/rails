@@ -1,0 +1,22 @@
+{
+  "name": "local",
+  "default_attributes": {
+    "rbenv": {
+      "rubies": ["2.1.0"],
+      "global": "2.1.0",
+        "gems": {
+          "2.1.0": [
+            {"name": "bundler"}
+          ]
+        }
+      }
+    },
+  "override_attributes": { },
+  "json_class": "Chef::Role",
+  "description": "local",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[ruby_build]",
+    "recipe[rbenv::system]"
+  ]
+}
