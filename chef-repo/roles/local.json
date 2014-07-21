@@ -17,6 +17,7 @@
   "chef_type": "role",
   "run_list": [
     "recipe[ruby_build]",
-    "recipe[rbenv::system]"
+    "recipe[rbenv::system]",
+    "recipe[mysql56]"
   ]
 }
